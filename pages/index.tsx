@@ -26,7 +26,7 @@ const Index: NextPage = () => (
           </StyledLink>
         </form>
       </Box>
-      <StyledBox>Hi! Im a box!</StyledBox>
+      <StyledBox>Hi! Im a bx!</StyledBox>
     </Flex>
   </IndexInner>
 )

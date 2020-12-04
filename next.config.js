@@ -4,11 +4,10 @@ const dotenvLoad = require('dotenv-load')
 
 const withPlugins = require('next-compose-plugins')
 const withImages = require('next-images')
-const withFonts = require('next-fonts')
 
 dotenvLoad()
 
-module.exports = withPlugins([withFonts, withImages], {
+module.exports = withPlugins([withImages], {
   experimental: {
     reactRefresh: true,
   },

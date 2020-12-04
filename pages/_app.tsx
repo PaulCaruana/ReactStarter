@@ -15,7 +15,7 @@ class MyApp extends App {
     const { Component, pageProps } = this.props
 
     return (
-      <ThemeProvider theme={light}>
+      <ThemeProvider theme={dark}>
         <GlobalStyle />
         <AppNav navbarLinks={navbarLinks} />
         <Component {...pageProps} />

@@ -1,6 +1,0 @@
-export * from './Box'
-export * from './Flex'
-export * from './Heading'
-export * from './Image'
-export * from './StyledLink'
-export * from './Text'

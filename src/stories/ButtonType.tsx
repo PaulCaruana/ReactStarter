@@ -3,6 +3,7 @@ import Link, { LinkProps } from 'next/link'
 import { HTMLAttributes } from 'react'
 import cn from 'classnames'
 import { UrlObject } from 'url'
+import Box from '~/components/Box'
 
 export interface ButtonProps extends HTMLAttributes<HTMLDivElement> {
   href: string
@@ -25,6 +26,7 @@ export const ButtonType: React.FC<ButtonProps> = ({ href, children, isVariant, .
           {children}
         </a>
       </Link>
+      <Box>Im a box</Box>
     </div>
   )
 }

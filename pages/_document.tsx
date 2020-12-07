@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheets as MuiServerStyleSheets } from '@material-ui/core/styles'
 import { ServerStyleSheet } from 'styled-components'
 
 interface Props {
@@ -13,6 +14,7 @@ export default class MyDocument extends Document<Props> {
     html: string
     head?: JSX.Element[]
   }> {
+    const muiSheets = new MuiServerStyleSheets()
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
 
@@ -29,6 +31,7 @@ export default class MyDocument extends Document<Props> {
           <>
             {initialProps.styles}
             {sheet.getStyleElement()}
+            {muiSheets.getStyleElement()}
           </>
         ),
       }

@@ -4,6 +4,7 @@ import { HTMLAttributes } from 'react'
 import cn from 'classnames'
 import { UrlObject } from 'url'
 import Box from '~/components/Box'
+import { Button } from '@material-ui/core'
 
 export interface ButtonProps extends HTMLAttributes<HTMLDivElement> {
   href: string
@@ -11,6 +12,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const ButtonType: React.FC<ButtonProps> = ({ href, children, isVariant, ...rest }) => {
+  console.log(JSON.stringify(rest, null, 2))
   return (
     <div className={`inline-flex ${!isVariant ? 'rounded-md shadow' : ''}`} {...rest}>
       <Link href={href} prefetch={false}>
@@ -27,6 +29,9 @@ export const ButtonType: React.FC<ButtonProps> = ({ href, children, isVariant, .
         </a>
       </Link>
       <Box>Im a box</Box>
+      <Button variant="contained" color="primary" onClick={() => void 0}>
+        Set Light Theme
+      </Button>
     </div>
   )
 }

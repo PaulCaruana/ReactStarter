@@ -9,14 +9,14 @@ const ThemeProvider: React.FC = props => {
   // Read current theme from localStorage or maybe from an api
   const [curThemeName, setCurThemeName] = useLocalState<string | null>('theme', 'lightTheme')
   // State to hold the selected theme name
-  const [themeName, _setThemeName] = useState(curThemeName)
+  const [themeName, _setThemeName] = useState<string>(curThemeName)
 
   // Get the theme object by theme name
   const theme = themeCreator(themeName)
+  console.log(theme)
 
   const setThemeName = (themeName: string): void => {
     setCurThemeName(themeName)
-    //localStorage.setItem('appTheme', themeName)
     _setThemeName(themeName)
   }
   return (

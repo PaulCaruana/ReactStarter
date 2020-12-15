@@ -8,9 +8,6 @@ const withImages = require('next-images')
 dotenvLoad()
 
 module.exports = withPlugins([withImages], {
-  experimental: {
-    reactRefresh: true,
-  },
   onDemandEntries: {
     // Make sure entries are not getting disposed.
     maxInactiveAge: 1000 * 60 * 60,
@@ -20,6 +17,7 @@ module.exports = withPlugins([withImages], {
       fs: 'empty',
     }
     config.resolve.alias['~'] = path.join(__dirname, 'src')
+    config.resolve.alias['@themes'] = path.join(__dirname, 'src/themes')
     return config
   },
 })

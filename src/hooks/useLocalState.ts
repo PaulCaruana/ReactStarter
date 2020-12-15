@@ -9,6 +9,7 @@ export default function useLocalState<S>(key: string, initial: S) {
   const [value, setValue] = useState<S>(() => {
     if (typeof window !== 'undefined' && window.localStorage) {
       const saved = window.localStorage.getItem(key)
+      const value = JSON.parse(saved)
       if (saved) {
         return JSON.parse(saved)
       }

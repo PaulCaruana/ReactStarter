@@ -5,7 +5,7 @@ import AppNav from '~/components/layout/AppNav'
 import { ThemeProvider } from 'styled-components'
 import { MuiThemeProvider, StylesProvider } from '@material-ui/core/styles'
 */
-import ThemeProvider from '~/styles/ThemeProvider'
+import ThemeProvider from '~/themes/ThemeProvider'
 import GlobalStyle from '~/styles/global'
 import { dark, light } from '~/styles/themes'
 import type { AppProps } from 'next/app'

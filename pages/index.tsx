@@ -5,7 +5,7 @@ import AppHead from '~/components/AppHead'
 import Box from '~/components/Box'
 import { Button as LinkButton } from '~/components/Button'
 import { Button } from '@material-ui/core'
-import { ThemeContext } from '~/styles/ThemeProvider'
+import { ThemeContext } from '~/themes/ThemeProvider'
 
 const IndexInner = styled.div``
 

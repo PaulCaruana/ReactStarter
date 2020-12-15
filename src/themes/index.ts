@@ -10,3 +10,5 @@ const themeMap: { [key: string]: Theme } = {
   lightTheme,
   darkTheme,
 }
+
+export const defaultTheme = 'lightTheme'

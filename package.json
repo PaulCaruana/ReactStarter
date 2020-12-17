@@ -15,11 +15,10 @@
   "bugs": {
     "url": "https://github.com/hype08/next-dashboard/issues"
   },
-  "author": "Paul  <isomorphicdev@gmail.com>",
+  "author": "Paul Caruana <caruanapaul023@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^4.11.2",
-    "@storybook/addon-contexts": "^5.3.21",
     "dotenv-load": "^2.0.0",
     "next": "^10.0.3",
     "next-compose-plugins": "^2.2.1",
@@ -30,9 +29,12 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.1.11",
     "@storybook/addon-actions": "^6.1.4",
+    "@storybook/addon-console": "^1.2.2",
+    "@storybook/addon-contexts": "^5.3.21",
     "@storybook/addon-essentials": "^6.1.4",
-    "@storybook/addon-links": "^6.1.4",
+    "@storybook/addon-links": "^6.1.11",
     "@storybook/addons": "^6.1.10",
     "@storybook/react": "^6.1.4",
     "@storybook/theming": "^6.1.10",

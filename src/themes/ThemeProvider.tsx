@@ -1,7 +1,10 @@
 import React, { HTMLAttributes, useState } from 'react'
+import { MuiThemeProvider, StylesProvider } from '@material-ui/core'
+import { ThemeProvider as SCThemeProvider } from 'styled-components'
+import CssBaseline from '@material-ui/core/CssBaseline'
 import useLocalState from '../hooks/useLocalState'
-import { MuiThemeProvider } from '@material-ui/core'
-import { themeCreator, defaultTheme } from '.'
+import { defaultTheme, muiThemes, saveThemeName, getSavedThemeName } from '.'
+import GlobalStyle from './global'
 
 export const ThemeContext = React.createContext((themeName: string): void => null)
 
@@ -10,27 +13,44 @@ export interface ThemeProviderProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ themeName, children }) => {
-  // Read current theme from localStorage or maybe from an api
-  const [savedThemeName, setSavedThemeName] = useLocalState<string | null>('theme', themeName || defaultTheme)
+  React.useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side')
+    if (jssStyles) {
+      jssStyles.parentElement.removeChild(jssStyles)
+    }
+  }, [])
 
-  // State to hold the selected theme name
+  // Read saved theme name
+  const savedThemeName = getSavedThemeName(defaultTheme)
+
+  // State to hold the current theme name
   const [currThemeName, setCurrThemeName] = useState<string>(savedThemeName)
 
-  // Get the theme object by theme name
-  const theme = themeCreator(currThemeName)
-
+  // Change current theme name and save to storage
   const setThemeName = (name: string): void => {
-    setSavedThemeName(name)
+    saveThemeName(name)
     setCurrThemeName(name)
   }
 
+  // themeName can be passed in, for example Storybook
+  // (This will override current state and saved state themes)
   if (themeName && currThemeName !== themeName) {
     setThemeName(themeName)
   }
 
+  // Get the theme object by theme name
+  const theme = muiThemes(currThemeName).theme
+
   return (
     <ThemeContext.Provider value={setThemeName}>
-      <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+      <StylesProvider injectFirst>
+        <CssBaseline />
+        <SCThemeProvider theme={theme as any}>
+          <GlobalStyle />
+          <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+        </SCThemeProvider>
+      </StylesProvider>
     </ThemeContext.Provider>
   )
 }

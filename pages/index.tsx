@@ -9,8 +9,9 @@ import { ThemeContext } from '~/themes/ThemeProvider'
 
 const IndexInner = styled.div``
 
-const Index: React.FC = () => {
+const Index: React.FC = props => {
   const setThemeName = useContext(ThemeContext)
+  //console.log('props=', JSON.stringify(props, null, 2))
 
   return (
     <div className="App">

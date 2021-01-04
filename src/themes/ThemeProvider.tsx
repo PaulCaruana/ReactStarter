@@ -1,9 +1,8 @@
 import React, { HTMLAttributes, useState } from 'react'
-import { MuiThemeProvider, StylesProvider } from '@material-ui/core'
+import { MuiThemeProvider, StylesProvider, NoSsr } from '@material-ui/core'
 import { ThemeProvider as SCThemeProvider } from 'styled-components'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import useLocalState from '../hooks/useLocalState'
-import { defaultTheme, muiThemes, saveThemeName, getSavedThemeName } from '.'
+import { defaultTheme, getSavedThemeName, muiThemes, saveThemeName } from '.'
 import GlobalStyle from './global'
 
 export const ThemeContext = React.createContext((themeName: string): void => null)
@@ -43,15 +42,17 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ themeName, children }) =>
   const theme = muiThemes(currThemeName).theme
 
   return (
-    <ThemeContext.Provider value={setThemeName}>
-      <StylesProvider injectFirst>
-        <CssBaseline />
-        <SCThemeProvider theme={theme as any}>
-          <GlobalStyle />
-          <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
-        </SCThemeProvider>
-      </StylesProvider>
-    </ThemeContext.Provider>
+    <NoSsr>
+      <ThemeContext.Provider value={setThemeName}>
+        <StylesProvider injectFirst>
+          <CssBaseline />
+          <SCThemeProvider theme={theme}>
+            <GlobalStyle />
+            <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+          </SCThemeProvider>
+        </StylesProvider>
+      </ThemeContext.Provider>
+    </NoSsr>
   )
 }
 

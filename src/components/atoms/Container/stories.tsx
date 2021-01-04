@@ -1,11 +1,11 @@
 import React from 'react';
-import { Col, ColProps, Row, RowCol, RowProps } from './index';
+import { Container, Col, ColProps, Row, RowProps } from './index';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Box from '@material-ui/core/Box';
 
 export default {
   title: 'Atoms/Container',
-  component: RowCol,
+  component: Container,
 } as Meta;
 
 export const RowTiles: Story<RowProps> = args => (
@@ -174,7 +174,15 @@ export const RowTilesVerticallyAlign: Story<RowProps> = args => (
       <Items />
     </Row>
     <h4>Vertical align centre with centred text</h4>
-    <Row tile="center" alignItems="center" textAlign="center" p={1} m={1} bgcolor="background.paper" height="100px">
+    <Row
+      tile="center"
+      alignItems="center"
+      textAlign="center"
+      p={1}
+      m={1}
+      bgcolor="background.paper"
+      height="100px"
+    >
       <Items />
     </Row>
     <h4>Vertical align bottom</h4>
@@ -206,10 +214,24 @@ export const RowTilesVerticallyAlign: Story<RowProps> = args => (
       <Box p={1} display="flex" alignItems="center" justifyContent="center" bgcolor="warning.main">
         Width: auto
       </Box>
-      <Box p={1} display="flex" alignItems="center" justifyContent="center" width={150} bgcolor="info.main">
+      <Box
+        p={1}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        width={150}
+        bgcolor="info.main"
+      >
         Width: 150
       </Box>
-      <Box p={1} display="flex" alignItems="center" justifyContent="center" width={120} bgcolor="error.main">
+      <Box
+        p={1}
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        width={120}
+        bgcolor="error.main"
+      >
         Width: 120
       </Box>
     </Row>

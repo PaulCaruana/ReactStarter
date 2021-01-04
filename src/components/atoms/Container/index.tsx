@@ -2,7 +2,7 @@ import React from 'react';
 import Box, { BoxProps } from '@material-ui/core/Box';
 import styled from 'styled-components';
 
-export type StyledRowColProps = BoxProps & {
+export type StyledContainerProps = BoxProps & {
   tile?:
     | 'left'
     | 'equally'
@@ -21,12 +21,12 @@ export type StyledRowColProps = BoxProps & {
   children?: NonNullable<React.ReactNode>;
 };
 
-type RowColProps = Omit<
-  StyledRowColProps,
+type ContainerProps = Omit<
+  StyledContainerProps,
   'isColumn' | 'display' | 'justify' | 'flex' | 'flexDirection'
 >;
-export type RowProps = RowColProps;
-export type ColProps = RowColProps;
+export type RowProps = ContainerProps;
+export type ColProps = ContainerProps;
 
 const flexSize = tile => {
   if (tile === 'equally') {
@@ -57,8 +57,8 @@ const fullWidth = tile => {
   }
   return '';
 };
-export const RowColStyle = styled(Box)`
-  ${({ tile, isColumn, gap }: StyledRowColProps) => `
+export const ContainerStyle = styled(Box)`
+  ${({ tile, isColumn, gap }: StyledContainerProps) => `
     & > * {
         ${flexSize(tile)}
         ${margins(tile, isColumn)}
@@ -68,7 +68,7 @@ export const RowColStyle = styled(Box)`
         ${isColumn ? 'margin-bottom' : 'margin-right'}: ${gap};
     }
   `}
-` as React.ComponentType<StyledRowColProps>;
+` as React.ComponentType<StyledContainerProps>;
 
 export function Row({
   tile = 'left',
@@ -76,8 +76,8 @@ export function Row({
   position = 'relative',
   children,
   ...rest
-}: RowColProps) {
-  return RowCol({ tile, isColumn: false, gap, position, children, ...rest });
+}: ContainerProps) {
+  return Container({ tile, isColumn: false, gap, position, children, ...rest });
 }
 
 export function Col({
@@ -86,18 +86,18 @@ export function Col({
   position = 'relative',
   children,
   ...rest
-}: RowColProps) {
-  return RowCol({ tile, isColumn: true, gap, position, children, ...rest });
+}: ContainerProps) {
+  return Container({ tile, isColumn: true, gap, position, children, ...rest });
 }
 
-export function RowCol({
+export function Container({
   tile = 'left',
   isColumn = false,
   gap = '0',
   position = 'relative',
   children,
   ...rest
-}: StyledRowColProps) {
+}: StyledContainerProps) {
   const display = 'flex';
   const direction = isColumn ? 'column' : 'row';
   const wrap =
@@ -118,7 +118,7 @@ export function RowCol({
   };
   const justifyContent = justifyContentMap[tile];
   return (
-    <RowColStyle
+    <ContainerStyle
       display={display}
       tile={tile}
       isColumn={isColumn}
@@ -130,6 +130,6 @@ export function RowCol({
       {...rest}
     >
       {children}
-    </RowColStyle>
+    </ContainerStyle>
   );
 }

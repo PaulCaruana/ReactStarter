@@ -2,7 +2,7 @@ import React from 'react'
 import Box, { BoxProps } from '@material-ui/core/Box'
 import styled from 'styled-components'
 
-export type StyledPanelProps = BoxProps & {
+export type StyledRowColProps = BoxProps & {
   tile?:
     | 'left'
     | 'equally'
@@ -16,12 +16,12 @@ export type StyledPanelProps = BoxProps & {
     | 'wrapCenter'
     | 'noWrap'
     | 'fullWidth'
-  stacked?: boolean
+  isColumn?: boolean
   gap?: string
   children?: NonNullable<React.ReactNode>
 }
 
-export type PanelProps = Omit<StyledPanelProps, 'display' | 'justify' | 'flex' | 'flexDirection'>
+export type RowColProps = Omit<StyledRowColProps, 'isColumn' | 'display' | 'justify' | 'flex' | 'flexDirection'>
 
 const flexSize = tile => {
   if (tile === 'equally') {
@@ -30,8 +30,8 @@ const flexSize = tile => {
   return ''
 }
 
-const margins = (tile, stacked) => {
-  if (!stacked) {
+const margins = (tile, isColumn) => {
+  if (!isColumn) {
     return ''
   }
   if (tile === 'left') {
@@ -52,29 +52,37 @@ const fullWidth = tile => {
   }
   return ''
 }
-export const PanelStyle = styled(Box)`
-  ${({ tile, stacked, gap }: StyledPanelProps) => `
+export const RowColStyle = styled(Box)`
+  ${({ tile, isColumn, gap }: StyledRowColProps) => `
     & > * {
         ${flexSize(tile)}
-        ${margins(tile, stacked)}
+        ${margins(tile, isColumn)}
         ${fullWidth(tile)}
     }
     & > :not(:last-child) {
-        ${stacked ? 'margin-bottom' : 'margin-right'}: ${gap};
+        ${isColumn ? 'margin-bottom' : 'margin-right'}: ${gap};
     }
   `}
-` as React.ComponentType<StyledPanelProps>
+` as React.ComponentType<StyledRowColProps>
 
-export function Panel({
+export function Row({ tile = 'left', gap = '0', position = 'relative', children, ...rest }: RowColProps) {
+  return RowCol({ tile, isColumn: false, gap, position, children, ...rest })
+}
+
+export function Col({ tile = 'left', gap = '0', position = 'relative', children, ...rest }: RowColProps) {
+  return RowCol({ tile, isColumn: true, gap, position, children, ...rest })
+}
+
+export function RowCol({
   tile = 'left',
-  stacked = false,
+  isColumn = false,
   gap = '0',
   position = 'relative',
   children,
   ...rest
-}: PanelProps) {
+}: StyledRowColProps) {
   const display = 'flex'
-  const direction = stacked ? 'column' : 'row'
+  const direction = isColumn ? 'column' : 'row'
   const wrap = tile === 'wrap' || tile === 'wrapEvenly' || tile === 'wrapCenter' ? 'wrap' : 'nowrap'
   const justifyContentMap = {
     left: 'flex-start',
@@ -92,10 +100,10 @@ export function Panel({
   }
   const justifyContent = justifyContentMap[tile]
   return (
-    <PanelStyle
+    <RowColStyle
       display={display}
       tile={tile}
-      stacked={stacked}
+      isColumn={isColumn}
       justifyContent={justifyContent}
       flexDirection={direction}
       gap={gap}
@@ -104,6 +112,6 @@ export function Panel({
       {...rest}
     >
       {children}
-    </PanelStyle>
+    </RowColStyle>
   )
 }

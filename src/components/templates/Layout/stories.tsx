@@ -1,94 +1,94 @@
 import React from 'react'
-import { Panel, PanelProps } from '.'
+import { RowCol, RowColProps } from '.'
 import { Meta, Story } from '@storybook/react/types-6-0'
 import Box from '@material-ui/core/Box'
 
 export default {
   title: 'Templates/Panel',
-  component: Panel,
+  component: RowCol,
 } as Meta
 
-export const RowTiles: Story<PanelProps> = args => (
+export const RowTiles: Story<RowColProps> = args => (
   <>
     <h4>left aligned</h4>
-    <Panel>
+    <RowCol>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>tiles with gap</h4>
-    <Panel gap={'10px'}>
+    <RowCol gap={'10px'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>equally</h4>
-    <Panel tile={'equally'}>
+    <RowCol tile={'equally'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>space between tiles</h4>
-    <Panel tile={'spaceBetween'}>
+    <RowCol tile={'spaceBetween'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>space tiles evenly</h4>
-    <Panel tile={'spaceEvenly'}>
+    <RowCol tile={'spaceEvenly'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>centred within equally spaced tiles</h4>
-    <Panel tile={'spaceAround'}>
+    <RowCol tile={'spaceAround'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>tiles centred</h4>
-    <Panel tile={'center'}>
+    <RowCol tile={'center'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>tiles right</h4>
-    <Panel tile={'right'}>
+    <RowCol tile={'right'}>
       <Items />
-    </Panel>
+    </RowCol>
   </>
 )
 
-export const RowTilesOverflow: Story<PanelProps> = args => (
+export const RowTilesOverflow: Story<RowColProps> = args => (
   <>
     <h4>tiles wrap</h4>
-    <Panel tile={'wrap'}>
+    <RowCol tile={'wrap'}>
       <Items />
       <Items />
       <Items />
       <Items />
       <Items />
       <Items />
-    </Panel>
+    </RowCol>
     <h4>tiles wrap evenly</h4>
-    <Panel tile={'wrapEvenly'}>
+    <RowCol tile={'wrapEvenly'}>
       <Items />
       <Items />
       <Items />
       <Items />
       <Items />
       <Items />
-    </Panel>
+    </RowCol>
     <h4>tiles wrap centre</h4>
-    <Panel tile={'wrapCenter'} gap={'10px'}>
+    <RowCol tile={'wrapCenter'} gap={'10px'}>
       <Items />
       <Items />
       <Items />
       <Items />
       <Items />
       <Items />
-    </Panel>
+    </RowCol>
     <h4>tiles no wrap</h4>
-    <Panel tile={'noWrap'}>
+    <RowCol tile={'noWrap'}>
       <Items />
       <Items />
       <Items />
       <Items />
       <Items />
       <Items />
-    </Panel>
+    </RowCol>
   </>
 )
-export const RowTilesSizes: Story<PanelProps> = args => (
+export const RowTilesSizes: Story<RowColProps> = args => (
   <>
     <h4>tiles 1 2 1</h4>
-    <Panel>
+    <RowCol>
       <Box p={1} flex="1 1 auto" bgcolor="warning.main">
         Item 1
       </Box>
@@ -98,9 +98,9 @@ export const RowTilesSizes: Story<PanelProps> = args => (
       <Box p={1} flex="1 1 auto" bgcolor="error.main">
         Item med 3
       </Box>
-    </Panel>
+    </RowCol>
     <h4>tiles * - -</h4>
-    <Panel>
+    <RowCol>
       <Box p={1} flexGrow={1} bgcolor="warning.main">
         Item 1
       </Box>
@@ -110,9 +110,9 @@ export const RowTilesSizes: Story<PanelProps> = args => (
       <Box p={1} bgcolor="error.main">
         Item med 3
       </Box>
-    </Panel>
+    </RowCol>
     <h4>tiles - - *</h4>
-    <Panel>
+    <RowCol>
       <Box p={1} bgcolor="warning.main">
         Item 1
       </Box>
@@ -122,9 +122,9 @@ export const RowTilesSizes: Story<PanelProps> = args => (
       <Box p={1} flexGrow={1} bgcolor="error.main">
         Item med 3
       </Box>
-    </Panel>
+    </RowCol>
     <h4>tiles * | |</h4>
-    <Panel>
+    <RowCol>
       <Box p={1} width="100%" bgcolor="warning.main">
         Item 1
       </Box>
@@ -134,83 +134,83 @@ export const RowTilesSizes: Story<PanelProps> = args => (
       <Box p={1} bgcolor="error.main">
         Item med 3
       </Box>
-    </Panel>
+    </RowCol>
     <h4>tiles 60 40</h4>
-    <Panel>
+    <RowCol>
       <Box p={1} flex="60 60 auto" bgcolor="warning.main">
         Item 1
       </Box>
       <Box p={1} flex="40 40 auto" bgcolor="info.main">
         Item large 2
       </Box>
-    </Panel>
+    </RowCol>
     <h4>tiles 2 1 with gap</h4>
-    <Panel gap={'10px'}>
+    <RowCol gap={'10px'}>
       <Box p={1} flex="2 2 auto" bgcolor="warning.main">
         Item 1
       </Box>
       <Box p={1} flex="1 1 auto" bgcolor="info.main">
         Item large 2
       </Box>
-    </Panel>
+    </RowCol>
   </>
 )
-export const StackedTiles: Story<PanelProps> = args => (
+export const StackedTiles: Story<RowColProps> = args => (
   <>
     <h4>Stacked tiles</h4>
-    <Panel stacked>
+    <RowCol stacked>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Stacked tiles full width</h4>
-    <Panel stacked tile={'fullWidth'}>
+    <RowCol stacked tile={'fullWidth'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Text Aligned Centered Stacked tiles full width</h4>
-    <Panel stacked tile={'fullWidth'} textAlign={'center'}>
+    <RowCol stacked tile={'fullWidth'} textAlign={'center'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Stacked tiles centred</h4>
-    <Panel stacked tile={'center'}>
+    <RowCol stacked tile={'center'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Stacked tiles right</h4>
-    <Panel stacked tile={'right'}>
+    <RowCol stacked tile={'right'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Text Aligned Right Stacked tiles right</h4>
-    <Panel stacked tile={'right'} textAlign={'right'}>
+    <RowCol stacked tile={'right'} textAlign={'right'}>
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Stacked tiles with gap</h4>
-    <Panel stacked gap={'10px'}>
+    <RowCol stacked gap={'10px'}>
       <Items />
-    </Panel>
+    </RowCol>
   </>
 )
-export const VerticallyAlignTiles: Story<PanelProps> = args => (
+export const VerticallyAlignTiles: Story<RowColProps> = args => (
   <Board>
     <h4>Vertical align top</h4>
-    <Panel alignItems="flex-start" p={1} m={1} bgcolor="background.paper" height="100px">
+    <RowCol alignItems="flex-start" p={1} m={1} bgcolor="background.paper" height="100px">
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Vertical align centre with centred text</h4>
-    <Panel tile="center" alignItems="center" textAlign="center" p={1} m={1} bgcolor="background.paper" height="100px">
+    <RowCol tile="center" alignItems="center" textAlign="center" p={1} m={1} bgcolor="background.paper" height="100px">
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Vertical align bottom</h4>
-    <Panel tile="right" alignItems="flex-end" p={1} m={1} bgcolor="background.paper" height="100px">
+    <RowCol tile="right" alignItems="flex-end" p={1} m={1} bgcolor="background.paper" height="100px">
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Vertical full height</h4>
-    <Panel tile="center" p={1} m={1} bgcolor="background.paper" height="100px">
+    <RowCol tile="center" p={1} m={1} bgcolor="background.paper" height="100px">
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Vertical full height and equal</h4>
-    <Panel tile="equally" p={1} m={1} bgcolor="background.paper" height="100px">
+    <RowCol tile="equally" p={1} m={1} bgcolor="background.paper" height="100px">
       <Items />
-    </Panel>
+    </RowCol>
     <h4>Vertical different item and text alignments (spaced evenly)</h4>
-    <Panel tile="spaceEvenly" p={1} m={1} bgcolor="background.paper" height="100px">
+    <RowCol tile="spaceEvenly" p={1} m={1} bgcolor="background.paper" height="100px">
       <Box p={1} alignSelf="flex-start" bgcolor="warning.main">
         Width: auto
       </Box>
@@ -220,9 +220,9 @@ export const VerticallyAlignTiles: Story<PanelProps> = args => (
       <Box p={1} width={120} alignSelf="flex-end" bgcolor="error.main" textAlign={'right'}>
         Width: 120
       </Box>
-    </Panel>
+    </RowCol>
     <h4>Vertical full height with centred text</h4>
-    <Panel tile="center" p={1} m={1} bgcolor="background.paper" gap="10px" height="100px">
+    <RowCol tile="center" p={1} m={1} bgcolor="background.paper" gap="10px" height="100px">
       <Box p={1} display="flex" alignItems="center" justifyContent="center" bgcolor="warning.main">
         Width: auto
       </Box>
@@ -232,7 +232,7 @@ export const VerticallyAlignTiles: Story<PanelProps> = args => (
       <Box p={1} display="flex" alignItems="center" justifyContent="center" width={120} bgcolor="error.main">
         Width: 120
       </Box>
-    </Panel>
+    </RowCol>
   </Board>
 )
 function Items() {

@@ -1,11 +1,11 @@
-import React from 'react'
-import { Button, ButtonGroup, ButtonProps } from '.'
-import { Story, Meta } from '@storybook/react/types-6-0'
+import React from 'react';
+import { Button, ButtonGroup, ButtonProps } from '.';
+import { Story, Meta } from '@storybook/react/types-6-0';
 
 export default {
   title: 'Atoms/Button',
   component: Button,
-} as Meta
+} as Meta;
 
 const Template: Story<ButtonProps> = args => (
   <>
@@ -43,37 +43,37 @@ const Template: Story<ButtonProps> = args => (
       Button
     </Button>
   </>
-)
+);
 
-export const Default = Template.bind({})
-Default.args = {}
+export const Default = Template.bind({});
+Default.args = {};
 
-export const Primary = Template.bind({})
+export const Primary = Template.bind({});
 Primary.args = {
   color: 'primary',
-}
+};
 
-export const Secondary = Template.bind({})
+export const Secondary = Template.bind({});
 Secondary.args = {
   color: 'secondary',
-}
+};
 
-export const Error = Template.bind({})
+export const Error = Template.bind({});
 Error.args = {
   color: 'error',
-}
+};
 
-export const Warning = Template.bind({})
+export const Warning = Template.bind({});
 Warning.args = {
   color: 'warning',
-}
+};
 
-export const Info = Template.bind({})
+export const Info = Template.bind({});
 Info.args = {
   color: 'info',
-}
+};
 
-export const Success = Template.bind({})
+export const Success = Template.bind({});
 Success.args = {
   color: 'success',
-}
+};

@@ -1,5 +1,5 @@
-import { createMuiTheme } from '@material-ui/core'
-import { PaletteOptions } from '@material-ui/core/styles/createPalette'
+import { createMuiTheme } from '@material-ui/core';
+import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 
 export const darkPalette = {
   common: {
@@ -86,6 +86,6 @@ export const darkPalette = {
     focusOpacity: 0.12,
     activatedOpacity: 0.24,
   },
-} as PaletteOptions
+} as PaletteOptions;
 
-export const darkTheme = createMuiTheme({ palette: darkPalette })
+export const darkTheme = createMuiTheme({ palette: darkPalette });

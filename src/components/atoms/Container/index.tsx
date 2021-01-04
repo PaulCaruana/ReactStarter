@@ -1,6 +1,6 @@
-import React from 'react'
-import Box, { BoxProps } from '@material-ui/core/Box'
-import styled from 'styled-components'
+import React from 'react';
+import Box, { BoxProps } from '@material-ui/core/Box';
+import styled from 'styled-components';
 
 export type StyledRowColProps = BoxProps & {
   tile?:
@@ -15,45 +15,48 @@ export type StyledRowColProps = BoxProps & {
     | 'wrapEvenly'
     | 'wrapCenter'
     | 'noWrap'
-    | 'fullWidth'
-  isColumn?: boolean
-  gap?: string
-  children?: NonNullable<React.ReactNode>
-}
+    | 'fullWidth';
+  isColumn?: boolean;
+  gap?: string;
+  children?: NonNullable<React.ReactNode>;
+};
 
-type RowColProps = Omit<StyledRowColProps, 'isColumn' | 'display' | 'justify' | 'flex' | 'flexDirection'>
-export type RowProps = RowColProps
-export type ColProps = RowColProps
+type RowColProps = Omit<
+  StyledRowColProps,
+  'isColumn' | 'display' | 'justify' | 'flex' | 'flexDirection'
+>;
+export type RowProps = RowColProps;
+export type ColProps = RowColProps;
 
 const flexSize = tile => {
   if (tile === 'equally') {
-    return 'flex: 1;'
+    return 'flex: 1;';
   }
-  return ''
-}
+  return '';
+};
 
 const margins = (tile, isColumn) => {
   if (!isColumn) {
-    return ''
+    return '';
   }
   if (tile === 'left') {
-    return 'margin-right: auto;'
+    return 'margin-right: auto;';
   }
   if (tile === 'center') {
-    return 'margin-left: auto; margin-right: auto;'
+    return 'margin-left: auto; margin-right: auto;';
   }
   if (tile === 'right') {
-    return 'margin-left: auto;'
+    return 'margin-left: auto;';
   }
-  return ''
-}
+  return '';
+};
 
 const fullWidth = tile => {
   if (tile === 'fullWidth') {
-    return 'width: 100%;'
+    return 'width: 100%;';
   }
-  return ''
-}
+  return '';
+};
 export const RowColStyle = styled(Box)`
   ${({ tile, isColumn, gap }: StyledRowColProps) => `
     & > * {
@@ -65,14 +68,26 @@ export const RowColStyle = styled(Box)`
         ${isColumn ? 'margin-bottom' : 'margin-right'}: ${gap};
     }
   `}
-` as React.ComponentType<StyledRowColProps>
+` as React.ComponentType<StyledRowColProps>;
 
-export function Row({ tile = 'left', gap = '0', position = 'relative', children, ...rest }: RowColProps) {
-  return RowCol({ tile, isColumn: false, gap, position, children, ...rest })
+export function Row({
+  tile = 'left',
+  gap = '0',
+  position = 'relative',
+  children,
+  ...rest
+}: RowColProps) {
+  return RowCol({ tile, isColumn: false, gap, position, children, ...rest });
 }
 
-export function Col({ tile = 'left', gap = '0', position = 'relative', children, ...rest }: RowColProps) {
-  return RowCol({ tile, isColumn: true, gap, position, children, ...rest })
+export function Col({
+  tile = 'left',
+  gap = '0',
+  position = 'relative',
+  children,
+  ...rest
+}: RowColProps) {
+  return RowCol({ tile, isColumn: true, gap, position, children, ...rest });
 }
 
 export function RowCol({
@@ -83,9 +98,10 @@ export function RowCol({
   children,
   ...rest
 }: StyledRowColProps) {
-  const display = 'flex'
-  const direction = isColumn ? 'column' : 'row'
-  const wrap = tile === 'wrap' || tile === 'wrapEvenly' || tile === 'wrapCenter' ? 'wrap' : 'nowrap'
+  const display = 'flex';
+  const direction = isColumn ? 'column' : 'row';
+  const wrap =
+    tile === 'wrap' || tile === 'wrapEvenly' || tile === 'wrapCenter' ? 'wrap' : 'nowrap';
   const justifyContentMap = {
     left: 'flex-start',
     right: 'flex-end',
@@ -99,8 +115,8 @@ export function RowCol({
     wrapCenter: 'center',
     noWrap: 'flex-start',
     fullWidth: 'space-between',
-  }
-  const justifyContent = justifyContentMap[tile]
+  };
+  const justifyContent = justifyContentMap[tile];
   return (
     <RowColStyle
       display={display}
@@ -115,5 +131,5 @@ export function RowCol({
     >
       {children}
     </RowColStyle>
-  )
+  );
 }

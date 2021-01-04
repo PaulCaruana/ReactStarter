@@ -1,12 +1,12 @@
-import React from 'react'
-import { Col, ColProps, Row, RowCol, RowProps } from './index'
-import { Meta, Story } from '@storybook/react/types-6-0'
-import Box from '@material-ui/core/Box'
+import React from 'react';
+import { Col, ColProps, Row, RowCol, RowProps } from './index';
+import { Meta, Story } from '@storybook/react/types-6-0';
+import Box from '@material-ui/core/Box';
 
 export default {
   title: 'Atoms/Container',
   component: RowCol,
-} as Meta
+} as Meta;
 
 export const RowTiles: Story<RowProps> = args => (
   <>
@@ -54,7 +54,7 @@ export const RowTiles: Story<RowProps> = args => (
       <Items />
     </Row>
   </>
-)
+);
 
 export const RowTilesOverflow: Story<RowProps> = args => (
   <>
@@ -95,7 +95,7 @@ export const RowTilesOverflow: Story<RowProps> = args => (
       <Items />
     </Row>
   </>
-)
+);
 export const RowTilesSizes: Story<RowProps> = args => (
   <>
     <h4>tiles 1 2 1</h4>
@@ -165,7 +165,8 @@ export const RowTilesSizes: Story<RowProps> = args => (
       </Box>
     </Row>
   </>
-)
+);
+
 export const RowTilesVerticallyAlign: Story<RowProps> = args => (
   <Board>
     <h4>Vertical align top</h4>
@@ -213,7 +214,7 @@ export const RowTilesVerticallyAlign: Story<RowProps> = args => (
       </Box>
     </Row>
   </Board>
-)
+);
 export const ColumnTiles: Story<ColProps> = args => (
   <>
     <h4>Column tiles default</h4>
@@ -245,7 +246,7 @@ export const ColumnTiles: Story<ColProps> = args => (
       <Items />
     </Col>
   </>
-)
+);
 
 function Items() {
   return (
@@ -260,12 +261,12 @@ function Items() {
         Width: 120
       </Box>
     </>
-  )
+  );
 }
 function Board({ children }) {
   return (
     <>
       <div style={{ width: '100%' }}>{children}</div>
     </>
-  )
+  );
 }

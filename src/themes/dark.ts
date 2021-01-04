@@ -8,9 +8,9 @@ export const darkPalette = {
   },
   type: 'dark',
   primary: {
-    main: '#9c27b0',
-    light: '#ab47bc',
-    dark: '#8e24aa',
+    main: '#bb22ee',
+    light: '#5566ee',
+    dark: '#bb11ff',
     contrastText: '#fff',
   },
   secondary: {

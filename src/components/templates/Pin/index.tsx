@@ -59,8 +59,16 @@ const pinCss = (top, bottom, left, right, midX, midY, midPoint) => {
     ${transformCss}
   `
 }
-export const Pin = styled(({ zIndex = 'speedDial', position = 'absolute', ...other }) => (
-  <Box position={position} zIndex={zIndex} {...other} />
+export const Pin = styled(({ zIndex = 'speedDial', ...other }) => (
+  <Box position="absolute" zIndex={zIndex} {...other} />
+))`
+  ${({ top, bottom, left, right, midX, midY, midPoint }: PinProps) => `
+    ${pinCss(top, bottom, left, right, midX, midY, midPoint)}
+  `}
+` as React.ComponentType<PinProps>
+
+export const PinVP = styled(({ zIndex = 'speedDial', ...other }) => (
+  <Box position="fixed" zIndex={zIndex} {...other} />
 ))`
   ${({ top, bottom, left, right, midX, midY, midPoint }: PinProps) => `
     ${pinCss(top, bottom, left, right, midX, midY, midPoint)}

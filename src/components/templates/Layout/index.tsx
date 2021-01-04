@@ -21,7 +21,9 @@ export type StyledRowColProps = BoxProps & {
   children?: NonNullable<React.ReactNode>
 }
 
-export type RowColProps = Omit<StyledRowColProps, 'isColumn' | 'display' | 'justify' | 'flex' | 'flexDirection'>
+type RowColProps = Omit<StyledRowColProps, 'isColumn' | 'display' | 'justify' | 'flex' | 'flexDirection'>
+export type RowProps = RowColProps
+export type ColProps = RowColProps
 
 const flexSize = tile => {
   if (tile === 'equally') {

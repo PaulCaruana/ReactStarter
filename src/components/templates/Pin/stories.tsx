@@ -1,14 +1,14 @@
 import React from 'react'
-import { Pin, PinProps } from '.'
+import { Pin, PinVP, PinProps } from '.'
 import { Meta, Story } from '@storybook/react/types-6-0'
 import Box from '@material-ui/core/Box'
 
 export default {
-  title: 'Templates/Pin',
+  title: 'Atoms/Pin',
   component: Pin,
 } as Meta
 
-export const Positions: Story<PinProps> = args => (
+export const Positional: Story<PinProps> = args => (
   <>
     <Box p={1} display="flex" position={'relative'} width={'100%'} height={500} bgcolor="info.main">
       <Box p={1} display="flex" position={'relative'} width={'100%'} height={'100%'} bgcolor="success.main" />
@@ -43,7 +43,7 @@ export const Positions: Story<PinProps> = args => (
   </>
 )
 
-export const PositionsOffset: Story<PinProps> = args => (
+export const PositionalOffset: Story<PinProps> = args => (
   <>
     <Box p={1} display="flex" position={'relative'} width={'100%'} height={500} bgcolor="info.main">
       <Box p={1} display="flex" position={'relative'} width={'100%'} height={'100%'} bgcolor="success.main" />
@@ -78,36 +78,36 @@ export const PositionsOffset: Story<PinProps> = args => (
   </>
 )
 
-export const PositionsViewPort: Story<PinProps> = args => (
+export const PositionalViewPort: Story<PinProps> = args => (
   <>
     <Box p={1} display="flex" position={'relative'} width={'100%'} height={500} bgcolor="info.main">
-      <Pin position="fixed" p={1} width={100} height={100} bgcolor="warning.main">
+      <PinVP p={1} width={100} height={100} bgcolor="warning.main">
         Top Left
-      </Pin>
-      <Pin position="fixed" p={1} midX width={100} height={100} bgcolor="warning.main">
+      </PinVP>
+      <PinVP p={1} midX width={100} height={100} bgcolor="warning.main">
         Top Centre
-      </Pin>
-      <Pin position="fixed" p={1} right width={100} height={100} bgcolor="warning.main">
+      </PinVP>
+      <PinVP p={1} right width={100} height={100} bgcolor="warning.main">
         Top Right
-      </Pin>
-      <Pin position="fixed" p={1} midY width={100} height={100} bgcolor="warning.main">
+      </PinVP>
+      <PinVP p={1} midY width={100} height={100} bgcolor="warning.main">
         Left Middle
-      </Pin>
-      <Pin position="fixed" p={1} midPoint width={200} height={200} bgcolor="error.main">
+      </PinVP>
+      <PinVP p={1} midPoint width={200} height={200} bgcolor="error.main">
         MidPoint
-      </Pin>
-      <Pin position="fixed" p={1} right midY width={100} height={100} bgcolor="warning.main">
+      </PinVP>
+      <PinVP p={1} right midY width={100} height={100} bgcolor="warning.main">
         Right Middle
-      </Pin>
-      <Pin position="fixed" p={1} bottom width={100} height={100} bgcolor="warning.main">
+      </PinVP>
+      <PinVP p={1} bottom width={100} height={100} bgcolor="warning.main">
         Left Bottom
-      </Pin>
-      <Pin position="fixed" p={1} midX bottom width={100} height={100} bgcolor="warning.main">
+      </PinVP>
+      <PinVP p={1} midX bottom width={100} height={100} bgcolor="warning.main">
         Centre Bottom
-      </Pin>
-      <Pin position="fixed" p={1} right bottom width={100} height={100} bgcolor="warning.main">
+      </PinVP>
+      <PinVP p={1} right bottom width={100} height={100} bgcolor="warning.main">
         Right Bottom
-      </Pin>
+      </PinVP>
     </Box>
   </>
 )

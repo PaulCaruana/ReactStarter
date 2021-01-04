@@ -1,10 +1,10 @@
 import React from 'react'
-import { Col, ColProps, Row, RowCol, RowProps } from '.'
+import { Col, ColProps, Row, RowCol, RowProps } from './index'
 import { Meta, Story } from '@storybook/react/types-6-0'
 import Box from '@material-ui/core/Box'
 
 export default {
-  title: 'Atoms/Layout',
+  title: 'Atoms/Container',
   component: RowCol,
 } as Meta
 
@@ -224,11 +224,11 @@ export const ColumnTiles: Story<ColProps> = args => (
     <Col tile="fullWidth">
       <Items />
     </Col>
-    <h4>Columns Text Aligned Centered tiles full width</h4>
+    <h4>Column Text Aligned Centered tiles full width</h4>
     <Col tile="fullWidth" textAlign="center">
       <Items />
     </Col>
-    <h4>Stacked tiles centred</h4>
+    <h4>Column tiles centred</h4>
     <Col tile="center">
       <Items />
     </Col>
@@ -236,7 +236,7 @@ export const ColumnTiles: Story<ColProps> = args => (
     <Col tile="right">
       <Items />
     </Col>
-    <h4>Columns Text Aligned Right tiles right</h4>
+    <h4>Column Text Aligned Right tiles right</h4>
     <Col tile="right" textAlign="right">
       <Items />
     </Col>

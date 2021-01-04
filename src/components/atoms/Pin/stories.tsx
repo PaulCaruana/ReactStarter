@@ -1,5 +1,5 @@
 import React from 'react'
-import { Pin, PinVP, PinProps } from '.'
+import { Pin, PinVP, PinProps } from './index'
 import { Meta, Story } from '@storybook/react/types-6-0'
 import Box from '@material-ui/core/Box'
 
@@ -81,31 +81,31 @@ export const PositionalOffset: Story<PinProps> = args => (
 export const PositionalViewPort: Story<PinProps> = args => (
   <>
     <Box p={1} display="flex" position={'relative'} width={'100%'} height={500} bgcolor="info.main">
-      <PinVP p={1} width={100} height={100} bgcolor="warning.main">
+      <PinVP p={1} width={100} height={100} bgcolor="success.main">
         Top Left
       </PinVP>
-      <PinVP p={1} midX width={100} height={100} bgcolor="warning.main">
+      <PinVP p={1} midX width={100} height={100} bgcolor="success.main">
         Top Centre
       </PinVP>
-      <PinVP p={1} right width={100} height={100} bgcolor="warning.main">
+      <PinVP p={1} right width={100} height={100} bgcolor="success.main">
         Top Right
       </PinVP>
-      <PinVP p={1} midY width={100} height={100} bgcolor="warning.main">
+      <PinVP p={1} midY width={100} height={100} bgcolor="success.main">
         Left Middle
       </PinVP>
       <PinVP p={1} midPoint width={200} height={200} bgcolor="error.main">
         MidPoint
       </PinVP>
-      <PinVP p={1} right midY width={100} height={100} bgcolor="warning.main">
+      <PinVP p={1} right midY width={100} height={100} bgcolor="success.main">
         Right Middle
       </PinVP>
-      <PinVP p={1} bottom width={100} height={100} bgcolor="warning.main">
+      <PinVP p={1} bottom width={100} height={100} bgcolor="success.main">
         Left Bottom
       </PinVP>
-      <PinVP p={1} midX bottom width={100} height={100} bgcolor="warning.main">
+      <PinVP p={1} midX bottom width={100} height={100} bgcolor="success.main">
         Centre Bottom
       </PinVP>
-      <PinVP p={1} right bottom width={100} height={100} bgcolor="warning.main">
+      <PinVP p={1} right bottom width={100} height={100} bgcolor="success.main">
         Right Bottom
       </PinVP>
     </Box>

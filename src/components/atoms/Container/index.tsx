@@ -27,6 +27,7 @@ type ContainerProps = Omit<
 >;
 export type RowProps = ContainerProps;
 export type ColProps = ContainerProps;
+export type PanelProps = ContainerProps;
 
 const flexSize = tile => {
   if (tile === 'equally') {
@@ -67,6 +68,10 @@ export const ContainerStyle = styled(Box)`
     & > :not(:last-child) {
         ${isColumn ? 'margin-bottom' : 'margin-right'}: ${gap};
     }
+    img.feature {
+      border-radius: 6px;
+      box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    }
   `}
 ` as React.ComponentType<StyledContainerProps>;
 
@@ -88,6 +93,39 @@ export function Col({
   ...rest
 }: ContainerProps) {
   return Container({ tile, isColumn: true, gap, position, children, ...rest });
+}
+
+export function Panel({
+  className = 'panel',
+  fontSize = 16,
+  tile = 'fullWidth',
+  textAlign = 'center',
+  gap = '0',
+  position = 'relative',
+  children,
+  bgcolor = 'background.paper',
+  borderRadius = 6,
+  boxShadow = 1,
+  padding = 2,
+  minWidth = 200,
+  ...rest
+}: ContainerProps) {
+  return Container({
+    className,
+    fontSize,
+    tile,
+    textAlign,
+    isColumn: true,
+    gap,
+    position,
+    bgcolor,
+    borderRadius,
+    boxShadow,
+    padding,
+    minWidth,
+    children,
+    ...rest,
+  });
 }
 
 export function Container({

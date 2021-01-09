@@ -33,7 +33,7 @@ export const RowTiles: Story<RowProps> = args => (
           Left
         </Box>
         <Box p={1} bgcolor="success.main">
-          Right
+          Right One
         </Box>
       </>
     </Row>

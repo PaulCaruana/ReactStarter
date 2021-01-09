@@ -1,13 +1,14 @@
-import React from 'react'
-import { addDecorator } from '@storybook/react'
-import { withA11y } from '@storybook/addon-a11y'
-import { withContexts } from '@storybook/addon-contexts/react'
-import { withNextRouter } from 'storybook-addon-next-router'
-import { jsxDecorator } from 'storybook-addon-jsx'
-import { withPerformance } from 'storybook-addon-performance'
+import React from 'react';
+import { addDecorator } from '@storybook/react';
+import { withA11y } from '@storybook/addon-a11y';
+import { withContexts } from '@storybook/addon-contexts/react';
+import { withNextRouter } from 'storybook-addon-next-router';
+import { jsxDecorator } from 'storybook-addon-jsx';
+import { withPerformance } from 'storybook-addon-performance';
 
-import '@storybook/addon-console'
-import contexts from './contexts'
+import '@storybook/addon-console';
+import contexts from './contexts';
+import * as nextImage from 'next/image';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -18,14 +19,21 @@ export const parameters = {
       htmlWhitespaceSensitivity: 'strict',
     },
   },
-}
+};
+
+Object.defineProperty(nextImage, 'default', {
+  configurable: true,
+  value: props => {
+    return <img {...props} />;
+  },
+});
 
 function Story(story) {
-  return <>{story()}</>
+  return <>{story()}</>;
 }
 
-addDecorator(Story)
-addDecorator(withA11y)
+addDecorator(Story);
+addDecorator(withA11y);
 addDecorator(
   withNextRouter({
     path: '/', // defaults to `/`
@@ -33,7 +41,7 @@ addDecorator(
     query: {}, // defaults to `{}`
     push() {}, // defaults to using addon actions integration, can override any method in the router
   }),
-)
-addDecorator(withContexts(contexts))
-addDecorator(jsxDecorator)
-addDecorator(withPerformance)
+);
+addDecorator(withContexts(contexts));
+addDecorator(jsxDecorator);
+addDecorator(withPerformance);

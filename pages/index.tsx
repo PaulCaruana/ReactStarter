@@ -40,7 +40,13 @@ const Index: React.FC = props => {
         <Button variant="contained" color="secondary" onClick={() => setThemeName('darkTheme')}>
           Set Dark Theme
         </Button>
-        <Image alt="Mountains" src="/images/mountains.jpg" layout="fill" objectFit="contain" />{' '}
+        <Image
+          alt="Mountains"
+          src="/images/mountains.jpg"
+          layout="fixed"
+          width={700}
+          height={475}
+        />
       </header>
     </div>
   );

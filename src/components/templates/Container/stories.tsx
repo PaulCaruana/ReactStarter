@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react/types-6-0';
 import Box from '@material-ui/core/Box';
 
 export default {
-  title: 'Atoms/Container',
+  title: 'Templates/Container',
   component: Container,
 } as Meta;
 
@@ -33,7 +33,7 @@ export const RowTiles: Story<RowProps> = args => (
           Left
         </Box>
         <Box p={1} bgcolor="success.main">
-          Right One
+          Right
         </Box>
       </>
     </Row>
@@ -161,6 +161,15 @@ export const RowTilesSizes: Story<RowProps> = args => (
         Item 1
       </Box>
       <Box p={1} flex="1 1 auto" bgcolor="info.main">
+        Item large 2
+      </Box>
+    </Row>
+    <h4>tiles showing flex grow, shrink and basic</h4>
+    <Row>
+      <Box p={1} flexShrink="1" bgcolor="warning.main">
+        Item 1
+      </Box>
+      <Box p={1} width="500px" flexShrink="2" bgcolor="info.main">
         Item large 2
       </Box>
     </Row>

@@ -21,10 +21,7 @@ export type StyledContainerProps = BoxProps & {
   children?: NonNullable<React.ReactNode>;
 };
 
-type ContainerProps = Omit<
-  StyledContainerProps,
-  'isColumn' | 'display' | 'justify' | 'flex' | 'flexDirection'
->;
+type ContainerProps = Omit<StyledContainerProps, 'justify' | 'flexDirection'>;
 export type RowProps = ContainerProps;
 export type ColProps = ContainerProps;
 export type PanelProps = ContainerProps;
@@ -58,6 +55,14 @@ const fullWidth = tile => {
   }
   return '';
 };
+
+const lastGap = (isColumn, gap) => {
+  if (gap) {
+    return isColumn ? `margin-bottom: ${gap}` : `margin-right: ${gap}`;
+  }
+  return '';
+};
+
 export const ContainerStyle = styled(Box)`
   ${({ tile, isColumn, gap }: StyledContainerProps) => `
     & > * {
@@ -66,18 +71,14 @@ export const ContainerStyle = styled(Box)`
         ${fullWidth(tile)}
     }
     & > :not(:last-child) {
-        ${isColumn ? 'margin-bottom' : 'margin-right'}: ${gap};
-    }
-    img.feature {
-      border-radius: 6px;
-      box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+        ${lastGap(isColumn, gap)};
     }
   `}
 ` as React.ComponentType<StyledContainerProps>;
 
 export function Row({
   tile = 'left',
-  gap = '0',
+  gap,
   position = 'relative',
   children,
   ...rest
@@ -85,28 +86,23 @@ export function Row({
   return Container({ tile, isColumn: false, gap, position, children, ...rest });
 }
 
-export function Col({
-  tile = 'left',
-  gap = '0',
-  position = 'relative',
-  children,
-  ...rest
-}: ContainerProps) {
-  return Container({ tile, isColumn: true, gap, position, children, ...rest });
+export function Col({ gap, position = 'relative', children, ...rest }: ContainerProps) {
+  return Container({ isColumn: true, gap, position, children, ...rest });
 }
 
 export function Panel({
   className = 'panel',
   fontSize = 16,
-  tile = 'fullWidth',
+  tile,
+  display = 'inline-flex',
   textAlign = 'center',
-  gap = '0',
+  gap,
   position = 'relative',
   children,
   bgcolor = 'background.paper',
   borderRadius = 6,
   boxShadow = 1,
-  padding = 2,
+  padding,
   minWidth = 200,
   ...rest
 }: ContainerProps) {
@@ -114,6 +110,7 @@ export function Panel({
     className,
     fontSize,
     tile,
+    display,
     textAlign,
     isColumn: true,
     gap,
@@ -129,9 +126,9 @@ export function Panel({
 }
 
 export function Container({
-  tile = 'left',
+  tile,
   isColumn = false,
-  gap = '0',
+  gap,
   position = 'relative',
   children,
   ...rest

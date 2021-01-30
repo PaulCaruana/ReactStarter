@@ -1,5 +1,6 @@
 import { createMuiTheme } from '@material-ui/core';
 import { PaletteOptions } from '@material-ui/core/styles/createPalette';
+import { lightTheme } from '~/themes/light';
 
 export const darkPalette = {
   common: {
@@ -89,3 +90,21 @@ export const darkPalette = {
 } as PaletteOptions;
 
 export const darkTheme = createMuiTheme({ palette: darkPalette });
+const variants = [
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'body1',
+  'body2',
+  'caption',
+  'subtitle1',
+  'button',
+];
+const typography = darkTheme.typography;
+for (const variant of variants) {
+  typography[variant].fontSize = typography[variant].fontSize.replace('rem', 'em');
+}
+typography.subtitle2.fontSize = '0.6em';

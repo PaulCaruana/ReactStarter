@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Panel, PanelProps, Col } from './index';
+import { Row, Panel, PanelProps, Col } from '.';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Image from 'next/image';
 import Typography from '@material-ui/core/Typography';

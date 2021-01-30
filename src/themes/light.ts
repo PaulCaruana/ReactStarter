@@ -1,5 +1,5 @@
-import { createMuiTheme } from '@material-ui/core'
-import { PaletteOptions } from '@material-ui/core/styles/createPalette'
+import { createMuiTheme } from '@material-ui/core';
+import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 
 export const lightPalette = {
   common: {
@@ -85,6 +85,24 @@ export const lightPalette = {
     focusOpacity: 0.12,
     activatedOpacity: 0.12,
   },
-} as PaletteOptions
+} as PaletteOptions;
 
-export const lightTheme = createMuiTheme({ palette: lightPalette })
+export const lightTheme = createMuiTheme({ palette: lightPalette });
+const variants = [
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+  'h5',
+  'h6',
+  'body1',
+  'body2',
+  'caption',
+  'subtitle1',
+  'button',
+];
+const typography = lightTheme.typography;
+for (const variant of variants) {
+  typography[variant].fontSize = typography[variant].fontSize.replace('rem', 'em');
+}
+typography.subtitle2.fontSize = '0.6em';

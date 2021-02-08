@@ -12403,10 +12403,10 @@ storybook-addon-designs@^5.4.2:
   dependencies:
     react-pdf "^4.0.5"
 
-storybook-addon-next-router@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/storybook-addon-next-router/-/storybook-addon-next-router-2.0.2.tgz#5c0bcca423e87d8959f59d417574f9a041a96138"
-  integrity sha512-Gr/hO4vriioP/5ywx1VlBlHjLjNEmf4CY6ikQZzWIysWII8wMw8/V6+4eylEkXF15zE4q/As3IqnyfneCdCDOw==
+storybook-addon-next-router@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/storybook-addon-next-router/-/storybook-addon-next-router-2.0.4.tgz#205a79b90ddb7a04b3da0ba2b613cde66790b68e"
+  integrity sha512-PAlAVA2joJC36r2uRU7pL5tNPqcOlcgJNuWyyiPAG6f/sptBK4EdOKUUdU0X9NBVV6BCkiwbLH/kkPmWYRxiFw==
 
 storybook-addon-themes@^6.0.0:
   version "6.0.1"

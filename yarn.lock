@@ -2009,6 +2009,14 @@
     core-js "^3.0.1"
     global "^4.3.2"
 
+"@storybook/client-logger@6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-6.5.0.tgz#97030cfb285422b24394cdcbbeda174226a2d96b"
+  integrity sha512-JDuMgvUTRGr3RdbIcBdV0uVOiZfQWbvMipcMuDYvoeI7FqwBH8qi9d3fPDaHAI1DmovUZFxAsBrLObu/wsRM3A==
+  dependencies:
+    core-js "^3.8.2"
+    global "^4.4.0"
+
 "@storybook/components@5.3.21":
   version "5.3.21"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-5.3.21.tgz#17ee371a2455c6e807c3d3135a9266e63ad7651a"
@@ -2305,7 +2313,7 @@
     resolve-from "^5.0.0"
     ts-dedent "^1.1.0"
 
-"@storybook/theming@6.1.11", "@storybook/theming@^6.0.0", "@storybook/theming@^6.1.10":
+"@storybook/theming@6.1.11":
   version "6.1.11"
   resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.1.11.tgz#0e757e0562aedefc96bd1d12714d4c8e92823467"
   integrity sha512-zRChacVgKoU2BmpvwK1ntiF3KIpc8QblJT7IGiKfP/BNpy9gNeXbLPLk3g/tkHszOvVYtkaZhEXni4Od8tqy1A==
@@ -2322,6 +2330,15 @@
     polished "^3.4.4"
     resolve-from "^5.0.0"
     ts-dedent "^2.0.0"
+
+"@storybook/theming@^6.0.0", "@storybook/theming@^6.5.0":
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-6.5.0.tgz#8cb0d18455ff417968e99712d7c6c3458f4ff106"
+  integrity sha512-QALIOP5T00SRNr0v/UuyZ7s2WNGa8Zb+oUQGgFpbbsvOar6TWGreuqpt2vWtTTCkTddvFl5q6tdX2x+urpV6iQ==
+  dependencies:
+    "@storybook/client-logger" "6.5.0"
+    core-js "^3.8.2"
+    regenerator-runtime "^0.13.7"
 
 "@storybook/ui@6.1.11":
   version "6.1.11"
@@ -4891,10 +4908,10 @@ core-js-pure@^3.0.0, core-js-pure@^3.0.1:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.8.1.tgz#23f84048f366fdfcf52d3fd1c68fec349177d119"
   integrity sha512-Se+LaxqXlVXGvmexKGPvnUIYC1jwXu1H6Pkyb3uBM5d8/NELMYCHs/4/roD7721NxrTLyv7e5nXd5/QLBO+10g==
 
-core-js@^3.0.1, core-js@^3.0.4, core-js@^3.6.4, core-js@^3.6.5:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.8.1.tgz#f51523668ac8a294d1285c3b9db44025fda66d47"
-  integrity sha512-9Id2xHY1W7m8hCl8NkhQn5CufmF/WuR30BTRewvCXc1aZd3kMECwNZ69ndLbekKfakw9Rf2Xyc+QR6E7Gg+obg==
+core-js@^3.0.1, core-js@^3.0.4, core-js@^3.6.4, core-js@^3.6.5, core-js@^3.8.2:
+  version "3.22.5"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.22.5.tgz#a5f5a58e663d5c0ebb4e680cd7be37536fb2a9cf"
+  integrity sha512-VP/xYuvJ0MJWRAobcmQ8F2H6Bsn+s7zqAAjFaHGBMc5AQm7zaelhD1LGduFn2EehEcQcU+br6t+fwbpQ5d1ZWA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
